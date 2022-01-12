@@ -1,0 +1,8 @@
+.notes_table {
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
