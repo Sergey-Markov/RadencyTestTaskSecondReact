@@ -2,7 +2,7 @@
   "name": "my-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Sergey-Markov.github.io/RadencyTestTaskSecondReact",
+  "homepage": "https://github.com/Sergey-Markov/RadencyTestTaskSecondReact.git",
   "dependencies": {
     "cra-template": "1.1.3",
     "gh-pages": "^3.2.3",
