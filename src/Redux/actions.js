@@ -1,7 +1,13 @@
-import shortid from "shortid";
 import { ADD_NOTE, DELETE_NOTE } from "./actions-types";
 
-export function addNote({ id, nameOfNote, date, text }) {
+export function addNote({
+  id,
+  nameOfNote,
+  date,
+  category,
+  text,
+  allDatesFromText,
+}) {
   return {
     type: ADD_NOTE,
     payload: {

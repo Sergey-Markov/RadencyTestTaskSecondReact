@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import shortid from "shortid";
+import { useDispatch } from "react-redux";
+import { addNote } from "../../Redux/actions";
 
 export default function FormModal({ show, setShow }) {
   const handleClose = () => setShow(false);
@@ -17,6 +19,7 @@ export default function FormModal({ show, setShow }) {
     text: contentOfNote,
     allDatesFromText: allDates(contentOfNote),
   };
+  const dispatch = useDispatch();
 
   function createNewNote() {
     console.log(nameOfNote, categoryOfNote, contentOfNote);
@@ -59,6 +62,7 @@ export default function FormModal({ show, setShow }) {
           <Button
             variant="primary"
             onClick={() => {
+              dispatch(addNote(newNote));
               handleClose();
               createNewNote();
             }}
