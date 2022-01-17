@@ -1,38 +1,33 @@
 import ArchiveNoteBtn from "../Buttons/ArchiveNoteBtn/ArchiveNoteBtn.js";
 import ChangeNoteBtn from "../Buttons/ChangeNoteBtn/ChangeNoteBtn.js";
 import DeleteBtn from "../Buttons/DeleteBtn/DeleteBtn";
+import { useSelector } from "react-redux";
 
 export default function Notes() {
-  const dateOfCreateMonth = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(1, 2)
-    .join(" ");
-  const dateOfCreateYear = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(3, 3)
-    .join(" ");
+  const notes = useSelector((state) => state.notes);
+  console.log(notes);
   return (
-    <tr className="notes_table-head">
-      <td className="notes_table-word_wrap">Idea</td>
-      <td>
-        {dateOfCreateMonth}, {dateOfCreateYear}
-      </td>
-      <td>Idea</td>
-      <td className="notes_table-word_wrap">
-        fuckkkkkkkkkkkkkkkkkkkkkkk 12/12/1212
-      </td>
-      <td>12/12/1212</td>
-      <td>
-        <ChangeNoteBtn />
-      </td>
-      <td>
-        <ArchiveNoteBtn />
-      </td>
-      <td>
-        <DeleteBtn />
-      </td>
-    </tr>
+    <>
+      {notes.map((note) => {
+        return (
+          <tr key={note.id} className="notes_table-head">
+            <td className="notes_table-word_wrap">{note.nameOfNote}</td>
+            <td>{note.date}</td>
+            <td>{note.category}</td>
+            <td className="note_table-word_wrap">{note.text}</td>
+            <td>{note.allDatesFromText}</td>
+            <td>
+              <ChangeNoteBtn />
+            </td>
+            <td>
+              <ArchiveNoteBtn />
+            </td>
+            <td>
+              <DeleteBtn />
+            </td>
+          </tr>
+        );
+      })}
+    </>
   );
 }

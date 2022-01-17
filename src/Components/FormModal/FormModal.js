@@ -21,9 +21,6 @@ export default function FormModal({ show, setShow }) {
   };
   const dispatch = useDispatch();
 
-  function createNewNote() {
-    console.log(nameOfNote, categoryOfNote, contentOfNote);
-  }
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -64,7 +61,6 @@ export default function FormModal({ show, setShow }) {
             onClick={() => {
               dispatch(addNote(newNote));
               handleClose();
-              createNewNote();
             }}
           >
             Save Changes
