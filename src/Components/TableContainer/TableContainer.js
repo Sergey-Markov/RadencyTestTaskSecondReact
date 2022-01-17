@@ -1,35 +1,18 @@
+import ArchiveNotes from "../ArchiveNotes/ArchiveNotes.js";
+import Notes from "../Notes/Notes.js";
+import TheadOfNotes from "../TableElements/TheadOfNotes/TheadOfNotes";
+
 export default function TableContainer() {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Created</th>
-          <th>Category</th>
-          <th>Content</th>
-          <th>Dates</th>
-
-          <th>
-            <button
-              type="button"
-              class="notes_table-head--btn"
-              id="showArchTable"
-            >
-              <i class="bi bi-archive"></i>
-            </button>
-          </th>
-          <th>
-            <button
-              type="button"
-              class="notes_table-head--btn"
-              id="deleteAllNotes"
-            >
-              <i class="bi bi-trash"></i>
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody class="parentFirst" id="tbody"></tbody>
-    </table>
+    <>
+      <h1>There are your Notes</h1>
+      <table>
+        <TheadOfNotes />
+        <tbody>
+          <Notes />
+          <ArchiveNotes />
+        </tbody>
+      </table>
+    </>
   );
 }

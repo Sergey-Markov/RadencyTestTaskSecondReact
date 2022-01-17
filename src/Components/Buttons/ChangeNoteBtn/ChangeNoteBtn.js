@@ -1,9 +1,10 @@
 import CommunButton from "../CommunButton.js";
+import { BsFillPencilFill } from "react-icons/bs";
 
 export default function ChangeNoteBtn() {
   return (
-    <CommunButton type="button" class="notes_table-row--btn">
-      <i class="bi bi-pencil"></i>
+    <CommunButton type="button" className="notes_table-row--btn">
+      <BsFillPencilFill />
     </CommunButton>
   );
 }

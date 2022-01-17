@@ -1,13 +1,117 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.notes_table{
+  text-align: center;
+  word-wrap:break-word;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button.create_note{
+  margin-bottom: 15px;
+  border: 3px solid rgb(240, 180, 240);
+  border-radius: 50%;
+
+
+}
+button:hover
+{
+  cursor: pointer;
+  background-color: #0aeca8;
+  border-radius: 50%;
+}
+.btn-primary{
+  border: none;
+  background-color: inherit;
+  border-radius: inherit;
+}
+
+table{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid rgb(243, 236, 243);
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+thead th:nth-child(1) {
+  width: 15%;
+}
+
+thead th:nth-child(2) {
+  width: 15%;
+}
+
+thead th:nth-child(3) {
+  width: 10%;
+}
+
+thead th:nth-child(4) {
+  width: 25%;
+}
+
+th, td {
+  padding: 5px;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+
+table {
+  background-color: #a08e9c;
+}
+
+.notes_table-head--btn{
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+/* .notes_table-head--btn:nth-child(1){
+    margin-left: 95px;
+} */
+
+.notes_table-row--btn{
+  border: none;
+  background-color: transparent;
+}
+/* .notes_table-row--btn:nth-child(1){
+  margin-left: 20px;
+} */
+
+.notes_table-word_wrap{
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  padding: 5px; /* Поля вокруг текста */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+
+
+.notes_table-word_wrap:hover{
+overflow: visible; 
+white-space: normal;
+height:auto;  
+}
+
+
+
+.overlay{
+position:absolute;
+width: 100%;
+height: 100%;
+/* top:50%;
+left:-50%; */
+background-color: rgb(90, 86, 86);
+z-index: 1;
+}
+
+.closeTable{
+display: none;
 }
