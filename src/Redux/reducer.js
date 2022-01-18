@@ -13,7 +13,14 @@ export const reducer = (state = INITIAL_STATE, action) => {
         notes: [...state.notes, action.payload],
       };
     case DELETE_NOTE:
-      return state;
+      const deleteNote = state.notes.filter((note) => {
+        return note.id !== action.payload.id;
+      });
+      return {
+        ...state,
+        notes: [...deleteNote],
+      };
+
     default:
       return state;
   }

@@ -1,0 +1,14 @@
+.notes_table_word_wrap{
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    padding: 5px; /* Поля вокруг текста */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+  }
+  
+  
+  
+  .notes_table_word_wrap:hover{
+  overflow: visible; 
+  white-space: normal;
+  height:auto;  
+  }
