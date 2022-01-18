@@ -29,6 +29,9 @@ export default function Notes() {
   return (
     <>
       {notes.map((note) => {
+        if (note.archived) {
+          return;
+        }
         return (
           <tr key={note.id} className="notes_table-head">
             <td className={s.notes_table_word_wrap}>{note.nameOfNote}</td>
@@ -48,7 +51,6 @@ export default function Notes() {
             <td>
               <ArchiveNoteBtn
                 onClick={() => {
-                  console.log(`click`);
                   dispatch(archivedNote(note.id));
                 }}
               />

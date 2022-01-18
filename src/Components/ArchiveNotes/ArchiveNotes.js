@@ -1,36 +1,70 @@
 import ArchiveNoteBtn from "../Buttons/ArchiveNoteBtn/ArchiveNoteBtn.js";
 import ChangeNoteBtn from "../Buttons/ChangeNoteBtn/ChangeNoteBtn.js";
 import DeleteBtn from "../Buttons/DeleteBtn/DeleteBtn";
+import { useDispatch, useSelector } from "react-redux";
+import s from "./ArchiveNotes.module.css";
+import { archivedNote, changeNote, deleteNote } from "../../Redux/actions.js";
 
-export default function ArcArchiveNotes() {
-  const dateOfCreateMonth = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(1, 2)
-    .join(" ");
-  const dateOfCreateYear = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(3, 3)
-    .join(" ");
+export default function Notes() {
+  const notes = useSelector((state) => state.notes);
+  const dispatch = useDispatch();
+
+  function onChangeNoteBtn(id) {
+    const elChange = document.getElementById(id);
+    elChange.insertAdjacentHTML(
+      "afterend",
+      `<button type="button" class="btn-primary" id="btnSubmitChange">Submit</button>`
+    );
+    elChange.setAttribute("contentEditable", "true");
+    elChange.focus({ preventScroll: true });
+    const btnSubmitChange = document.getElementById("btnSubmitChange");
+    btnSubmitChange.addEventListener("click", (event) => {
+      elChange.setAttribute("contentEditable", "false");
+      dispatch(changeNote(id, elChange.textContent));
+      btnSubmitChange.remove();
+      event.stopPropagation();
+    });
+  }
+
   return (
-    <tr className="notes_table-head">
-      <td className="notes_table-word_wrap">Idea</td>
-      <td>
-        {dateOfCreateMonth}, {dateOfCreateYear}
-      </td>
-      <td>Idea</td>
-      <td className="notes_table-word_wrap">archive 12/12/1212</td>
-      <td>12/12/1212</td>
-      <td>
-        <ChangeNoteBtn />
-      </td>
-      <td>
-        <ArchiveNoteBtn />
-      </td>
-      <td>
-        <DeleteBtn />
-      </td>
-    </tr>
+    <>
+      {notes.map((note) => {
+        if (!note.archived) {
+          return;
+        }
+        return (
+          <tr key={note.id} className="notes_table-head">
+            <td className={s.notes_table_word_wrap}>{note.nameOfNote}</td>
+            <td>{note.date}</td>
+            <td>{note.category}</td>
+            <td className={s.notes_table_word_wrap} id={note.id}>
+              {note.text}
+            </td>
+            <td>{note.allDatesFromText}</td>
+            <td>
+              <ChangeNoteBtn
+                onClick={(e) => {
+                  onChangeNoteBtn(note.id);
+                }}
+              />
+            </td>
+            <td>
+              <ArchiveNoteBtn
+                onClick={() => {
+                  dispatch(archivedNote(note.id));
+                }}
+              />
+            </td>
+            <td>
+              <DeleteBtn
+                onClick={() => {
+                  dispatch(deleteNote(note.id));
+                }}
+              />
+            </td>
+          </tr>
+        );
+      })}
+    </>
   );
 }

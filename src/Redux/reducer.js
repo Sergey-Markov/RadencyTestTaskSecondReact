@@ -32,7 +32,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case ADD_NOTE_TO_ARCHIVE:
       state.notes.map((note) => {
         const myNote = note.id === action.payload.id;
-        if (myNote) {
+        if (myNote && note.archived) {
+          note.archived = false;
+        } else {
           note.archived = true;
         }
         console.log(note);
