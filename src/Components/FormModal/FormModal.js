@@ -18,6 +18,7 @@ export default function FormModal({ show, setShow }) {
     category: categoryOfNote,
     text: contentOfNote,
     allDatesFromText: allDates(contentOfNote),
+    archived: false,
   };
   const dispatch = useDispatch();
 
