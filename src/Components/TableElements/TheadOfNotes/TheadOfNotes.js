@@ -1,7 +1,7 @@
 import OpenArchiveBtn from "../../Buttons/OpenArchiveBtn/OpenArchiveBtn";
 import DeleteAllNotesBtn from "../../Buttons/DeleteAllNotesBtn/DeleteAllNotesBtn";
 
-export default function TheadOfNotes() {
+export default function TheadOfNotes({ setStatus }) {
   return (
     <thead>
       <tr>
@@ -12,7 +12,7 @@ export default function TheadOfNotes() {
         <th>Dates</th>
 
         <th>
-          <OpenArchiveBtn />
+          <OpenArchiveBtn setStatus={setStatus} />
         </th>
         <th>
           <DeleteAllNotesBtn />
