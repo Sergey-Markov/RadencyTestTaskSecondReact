@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import shortid from "shortid";
 import { useDispatch } from "react-redux";
 import { addNote } from "../../Redux/actions";
+import { createNewDate } from "../../utils/createNewDate.js";
+import { allDates } from "../../utils/allDates.js";
 
 export default function FormModal({ show, setShow }) {
   const handleClose = () => setShow(false);
@@ -77,26 +79,4 @@ export default function FormModal({ show, setShow }) {
       </Modal>
     </>
   );
-}
-
-function createNewDate() {
-  const dateOfCreateMonth = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(1, 2)
-    .join(" ");
-  const dateOfCreateYear = new Date()
-    .toDateString()
-    .split(" ")
-    .splice(3, 3)
-    .join(" ");
-  return `${dateOfCreateMonth}, ${dateOfCreateYear}`;
-}
-
-export function allDates(str) {
-  const res = str.match(/\d{2}([\/.-])\d{2}\1\d{4}/g);
-  if (res) {
-    return res.join(", ");
-  }
-  return "";
 }

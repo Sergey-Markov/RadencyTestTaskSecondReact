@@ -3,7 +3,7 @@ import ChangeNoteBtn from "../Buttons/ChangeNoteBtn/ChangeNoteBtn.js";
 import DeleteBtn from "../Buttons/DeleteBtn/DeleteBtn";
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Notes.module.css";
-import { archivedNote, changeNote, deleteNote } from "../../Redux/actions.js";
+import { archivedNote, deleteNote } from "../../Redux/actions.js";
 import { сhooseImgCategory } from "../../utils/сhooseImgCategory.js";
 import { onChangeNoteBtn } from "../../utils/onChangeNoteBtn.js";
 
