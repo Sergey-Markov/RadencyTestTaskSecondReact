@@ -5,9 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./Notes.module.css";
 import { archivedNote, changeNote, deleteNote } from "../../Redux/actions.js";
 
+import { BsCart4, BsGear } from "react-icons/bs";
+
 export default function Notes() {
   const notes = useSelector((state) => state.notes);
   const dispatch = useDispatch();
+
+  // let imgCategory = ``;
+  // imgCategory = `<i class="bi bi-cart4 active"></i>`;
+  // if (refs.inputCategoryOfNote.value === "Random Tought") {
+  //   imgCategory = `<i class="bi bi-gear active"></i>`;
+  // }
+
+  // if (refs.inputCategoryOfNote.value === "Idea") {
+  //   imgCategory = `<i class="bi bi-lightbulb active"></i>`;
+  // }
+  function сhooseImgCategory(category) {
+    let imgCategory = <BsCart4 />;
+    if (category === "Random Tought") {
+      imgCategory = <BsGear />;
+    }
+  }
 
   function onChangeNoteBtn(id) {
     const elChange = document.getElementById(id);
