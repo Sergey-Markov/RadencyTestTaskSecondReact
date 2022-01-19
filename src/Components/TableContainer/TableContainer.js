@@ -5,9 +5,10 @@ import TheadOfNotes from "../TableElements/TheadOfNotes/TheadOfNotes";
 
 export default function TableContainer() {
   const [status, setStatus] = useState(false);
-  console.log(status);
-  function changeStatus(bool) {
-    setStatus(bool);
+
+  function changeStatus() {
+    if (status) setStatus(false);
+    if (status === false) setStatus(true);
   }
   return (
     <>
@@ -15,7 +16,7 @@ export default function TableContainer() {
         <>
           <h1>There are your Archive</h1>
           <table>
-            <TheadOfNotes setStatus={changeStatus} />
+            <TheadOfNotes clickHandler={changeStatus} />
             <tbody>
               <ArchiveNotes />
             </tbody>
@@ -25,7 +26,7 @@ export default function TableContainer() {
         <>
           <h1>There are your Notes</h1>
           <table>
-            <TheadOfNotes />
+            <TheadOfNotes clickHandler={changeStatus} />
             <tbody>
               <Notes />
             </tbody>

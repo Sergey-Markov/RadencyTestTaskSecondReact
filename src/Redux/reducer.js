@@ -1,13 +1,14 @@
+import { allDates } from "../Components/FormModal/FormModal";
 import {
   ADD_NOTE,
   ADD_NOTE_TO_ARCHIVE,
   CHANGE_NOTE,
+  DELETE_ALL_NOTES,
   DELETE_NOTE,
 } from "./actions-types";
 
 const INITIAL_STATE = {
   notes: [],
-  archiveNotes: [],
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -22,6 +23,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
         const myNote = note.id === action.payload.id;
         if (myNote) {
           note.text = action.payload.text;
+          note.allDatesFromText = allDates(action.payload.text);
         }
       });
       return {
@@ -32,12 +34,17 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case ADD_NOTE_TO_ARCHIVE:
       state.notes.map((note) => {
         const myNote = note.id === action.payload.id;
-        if (myNote && note.archived) {
-          note.archived = false;
-        } else {
-          note.archived = true;
+        if (myNote) {
+          if (note.archived) {
+            note.archived = false;
+            return;
+          }
+          if (note.archived === false) {
+            note.archived = true;
+            return;
+          }
         }
-        console.log(note);
+        return;
       });
       return {
         ...state,
@@ -51,6 +58,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         notes: [...deleteNote],
+      };
+
+    case DELETE_ALL_NOTES:
+      return {
+        ...state,
+        notes: [],
       };
 
     default:

@@ -8,8 +8,14 @@ import { addNote } from "../../Redux/actions";
 export default function FormModal({ show, setShow }) {
   const handleClose = () => setShow(false);
   const [nameOfNote, setNameOfNote] = useState("");
-  const [categoryOfNote, setCategoryOfNote] = useState("Random Tought");
+  const [categoryOfNote, setCategoryOfNote] = useState("Task");
   const [contentOfNote, setContentOfNote] = useState("");
+
+  function clearForm() {
+    setNameOfNote("");
+    setContentOfNote("");
+    setCategoryOfNote("Task");
+  }
 
   const newNote = {
     id: shortid(),
@@ -61,6 +67,7 @@ export default function FormModal({ show, setShow }) {
             variant="primary"
             onClick={() => {
               dispatch(addNote(newNote));
+              clearForm();
               handleClose();
             }}
           >
@@ -86,7 +93,7 @@ function createNewDate() {
   return `${dateOfCreateMonth}, ${dateOfCreateYear}`;
 }
 
-function allDates(str) {
+export function allDates(str) {
   const res = str.match(/\d{2}([\/.-])\d{2}\1\d{4}/g);
   if (res) {
     return res.join(", ");
