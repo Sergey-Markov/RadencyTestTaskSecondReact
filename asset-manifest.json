@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Sergey-Markov/RadencyTestTaskSecondReact.git/static/css/main.254fb850.css",
-    "main.js": "/Sergey-Markov/RadencyTestTaskSecondReact.git/static/js/main.35ea3593.js",
-    "index.html": "/Sergey-Markov/RadencyTestTaskSecondReact.git/index.html",
-    "main.254fb850.css.map": "/Sergey-Markov/RadencyTestTaskSecondReact.git/static/css/main.254fb850.css.map",
-    "main.35ea3593.js.map": "/Sergey-Markov/RadencyTestTaskSecondReact.git/static/js/main.35ea3593.js.map"
+    "main.css": "/Sergey-Markov/radency-test-task-second-react/static/css/main.254fb850.css",
+    "main.js": "/Sergey-Markov/radency-test-task-second-react/static/js/main.35ea3593.js",
+    "index.html": "/Sergey-Markov/radency-test-task-second-react/index.html",
+    "main.254fb850.css.map": "/Sergey-Markov/radency-test-task-second-react/static/css/main.254fb850.css.map",
+    "main.35ea3593.js.map": "/Sergey-Markov/radency-test-task-second-react/static/js/main.35ea3593.js.map"
   },
   "entrypoints": [
     "static/css/main.254fb850.css",
