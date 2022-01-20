@@ -1,8 +1,8 @@
 {
-  "name": "my-react-app",
+  "name": "radency-test-task-second-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Sergey-Markov/RadencyTestTaskSecondReact.git",
+  "homepage": "https://Sergey-Markov.github.io/radency-test-task-second-react",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "bootstrap": "^5.1.3",
