@@ -10,7 +10,7 @@ export default function CommunButton({
 }) {
   return (
     <button
-      {...otherProps} //можем добавлять любой атрибут который нам нужен
+      {...otherProps}
       className={className}
       onClick={onClick}
       disabled={disabled}
@@ -27,9 +27,9 @@ CommunButton.propTypes = {
   active: PropTypes.bool,
 };
 CommunButton.defaultProps = {
-  children: "Any Text", //для того чтоб между  <Button>......</Button> можно было писать любой текст
-  onClick: () => {}, //в этот пропс можно передать любую функцию
+  children: "Any Text",
+  onClick: () => {},
   className: "",
-  disabled: false, // неактивная кнопка
-  active: false, // активная кнопка
+  disabled: false,
+  active: false,
 };

@@ -37,7 +37,6 @@ export default function FormModal({ show, setShow }) {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* ============================================== */}
           <Form.Group className="mb-3">
             <Form.Label>List name</Form.Label>
             <Form.Control

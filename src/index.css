@@ -89,23 +89,19 @@ table {
     background-color: transparent;
     color: inherit;
 }
-/* .notes_table-head--btn:nth-child(1){
-    margin-left: 95px;
-} */
+
 
 .notes_table-row--btn{
   border: none;
   background-color: transparent;
 }
-/* .notes_table-row--btn:nth-child(1){
-  margin-left: 20px;
-} */
+
 
 .notes_table-word_wrap{
-  white-space: nowrap; /* Запрещаем перенос строк */
-  overflow: hidden; /* Обрезаем все, что не помещается в область */
-  padding: 5px; /* Поля вокруг текста */
-  text-overflow: ellipsis; /* Добавляем многоточие */
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px; 
+  text-overflow: ellipsis; 
 }
 
 
@@ -122,8 +118,6 @@ height:auto;
 position:absolute;
 width: 100%;
 height: 100%;
-/* top:50%;
-left:-50%; */
 background-color: rgb(90, 86, 86);
 z-index: 1;
 }
