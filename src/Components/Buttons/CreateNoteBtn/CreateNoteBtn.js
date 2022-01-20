@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import CommunButton from "../CommunButton.js";
 
 export default function CreateNoteBtn({ setShow }) {
