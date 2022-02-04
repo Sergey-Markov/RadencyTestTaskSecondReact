@@ -52,7 +52,9 @@ export const createNoteThunk = createAsyncThunk(
       if (!response.ok) {
         throw new Error(response.data);
       }
+
       dispatch(getAllNotesThunk());
+      return response.data;
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -81,6 +83,7 @@ export const changeNoteStatusThunk = createAsyncThunk(
         throw new Error(response.data);
       }
       dispatch(getAllNotesThunk());
+      return response.data;
     } catch (error) {
       return rejectWithValue(error);
     }
