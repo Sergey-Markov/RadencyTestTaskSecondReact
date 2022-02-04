@@ -3,14 +3,17 @@ import ChangeNoteBtn from "../Buttons/ChangeNoteBtn/ChangeNoteBtn.js";
 import DeleteBtn from "../Buttons/DeleteBtn/DeleteBtn";
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Notes.module.css";
-import { archivedNote, deleteNote } from "../../Redux/actions.js";
 import { сhooseImgCategory } from "../../utils/сhooseImgCategory.js";
-import { onChangeNoteBtn } from "../../utils/onChangeNoteBtn.js";
+import {
+  changeNoteStatusThunk,
+  deleteNoteThunk,
+  changeNoteContentThunk,
+} from "../../Redux/asyncReducer.js";
 
 export default function Notes() {
   const notes = useSelector((state) => state.notes);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   return (
     <>
       {notes.map((note) => {
@@ -18,33 +21,33 @@ export default function Notes() {
           return;
         }
         return (
-          <tr key={note.id} className="notes_table-head">
+          <tr key={note._id} className="notes_table-head">
             <td>{сhooseImgCategory(note.category)}</td>
-            <td className={s.notes_table_word_wrap}>{note.nameOfNote}</td>
+            <td className={s.notes_table_word_wrap}>{note.name}</td>
             <td>{note.date}</td>
             <td>{note.category}</td>
-            <td className={s.notes_table_word_wrap} id={note.id}>
-              {note.text}
+            <td className={s.notes_table_word_wrap} id={note._id}>
+              {note.content}
             </td>
             <td>{note.allDatesFromText}</td>
             <td>
               <ChangeNoteBtn
                 onClick={(e) => {
-                  onChangeNoteBtn(note.id, dispatch);
+                  dispatch(changeNoteContentThunk(note._id));
                 }}
               />
             </td>
             <td>
               <ArchiveNoteBtn
                 onClick={() => {
-                  dispatch(archivedNote(note.id));
+                  dispatch(changeNoteStatusThunk(note._id));
                 }}
               />
             </td>
             <td>
               <DeleteBtn
-                onClick={() => {
-                  dispatch(deleteNote(note.id));
+                onClick={async () => {
+                  dispatch(deleteNoteThunk(note._id));
                 }}
               />
             </td>

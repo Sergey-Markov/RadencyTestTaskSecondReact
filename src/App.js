@@ -1,14 +1,18 @@
 import Container from "./Components/Container/Container";
 import TableContainer from "./Components/TableContainer/TableContainer";
 import CreateNoteBtn from "./Components/Buttons/CreateNoteBtn/CreateNoteBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableOfStatistic from "./Components/TableOfStatistic/TableOfStatistic";
 import { FormModal } from "./Components/FormModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllNotesThunk } from "./Redux/asyncReducer";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [show, setShow] = useState(false);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllNotesThunk());
+  }, [dispatch]);
   return (
     <Container>
       <TableContainer />

@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import shortid from "shortid";
 import { useDispatch } from "react-redux";
-import { addNote } from "../../Redux/actions";
-import { createNewDate } from "../../utils/createNewDate.js";
-import { allDates } from "../../utils/allDates.js";
+import { addNoteApi } from "../../middlewares/addNoteApi";
+import { createNoteThunk } from "../../Redux/asyncReducer";
 
 export default function FormModal({ show, setShow }) {
   const handleClose = () => setShow(false);
-  const [nameOfNote, setNameOfNote] = useState("");
+  const [nameOfNote, setNameOfNote] = useState();
   const [categoryOfNote, setCategoryOfNote] = useState("Task");
-  const [contentOfNote, setContentOfNote] = useState("");
+  const [contentOfNote, setContentOfNote] = useState();
 
   function clearForm() {
     setNameOfNote("");
@@ -20,13 +18,9 @@ export default function FormModal({ show, setShow }) {
   }
 
   const newNote = {
-    id: shortid(),
-    nameOfNote,
-    date: createNewDate(),
+    name: nameOfNote,
     category: categoryOfNote,
-    text: contentOfNote,
-    allDatesFromText: allDates(contentOfNote),
-    archived: false,
+    content: contentOfNote,
   };
   const dispatch = useDispatch();
 
@@ -67,7 +61,7 @@ export default function FormModal({ show, setShow }) {
           <Button
             variant="primary"
             onClick={() => {
-              dispatch(addNote(newNote));
+              dispatch(createNoteThunk(newNote));
               clearForm();
               handleClose();
             }}

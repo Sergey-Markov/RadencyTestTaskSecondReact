@@ -55,8 +55,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
       const deleteNote = state.notes.filter((note) => {
         return note.id !== action.payload.id;
       });
+      console.log(deleteNote);
       return {
-        ...state,
         notes: [...deleteNote],
       };
 
