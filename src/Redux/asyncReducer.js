@@ -130,6 +130,25 @@ export const changeNoteContentThunk = createAsyncThunk(
   }
 );
 
+export const deleteAllNoteThunk = createAsyncThunk(
+  "notes/deleteAllNote",
+  async function (_, { rejectWithValue, dispatch }) {
+    try {
+      const response = await fetch(
+        `https://list-nodes.herokuapp.com/notes/deleteall`,
+        { method: `DELETE` }
+      );
+      if (!response.ok) {
+        throw new Error(response.data);
+      }
+      dispatch(getAllNotesThunk());
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const setError = (state, action) => {
   state.status = "error";
   state.error = action.payload;
@@ -152,6 +171,7 @@ export const slice = createSlice({
     [createNoteThunk.rejected]: setError,
     [changeNoteStatusThunk.rejected]: setError,
     [changeNoteContentThunk.rejected]: setError,
+    [deleteAllNoteThunk.rejected]: setError,
   },
 });
 

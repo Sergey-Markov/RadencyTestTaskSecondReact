@@ -1,13 +1,12 @@
 import CommunButton from "../CommunButton.js";
 import { BsFillTrashFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { deleteAllNotes } from "../../../Redux/actions.js";
+import { deleteAllNoteThunk } from "../../../Redux/asyncReducer.js";
 
 export default function DeleteAllNotesBtn() {
   const dispatch = useDispatch();
-  function deleteAll() {
-    console.log("click");
-    dispatch(deleteAllNotes());
+  async function deleteAll() {
+    dispatch(deleteAllNoteThunk());
   }
   return (
     <CommunButton

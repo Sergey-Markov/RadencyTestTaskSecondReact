@@ -4,7 +4,7 @@ import CreateNoteBtn from "./Components/Buttons/CreateNoteBtn/CreateNoteBtn";
 import { useEffect, useState } from "react";
 import TableOfStatistic from "./Components/TableOfStatistic/TableOfStatistic";
 import { FormModal } from "./Components/FormModal";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllNotesThunk } from "./Redux/asyncReducer";
 
 function App() {

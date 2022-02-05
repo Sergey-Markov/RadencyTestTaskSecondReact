@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
-import { addNoteApi } from "../../middlewares/addNoteApi";
 import { createNoteThunk } from "../../Redux/asyncReducer";
 
 export default function FormModal({ show, setShow }) {
