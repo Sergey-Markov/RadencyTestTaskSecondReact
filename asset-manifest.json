@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/radency-test-task-second-react/static/css/main.254fb850.css",
-    "main.js": "/radency-test-task-second-react/static/js/main.35ea3593.js",
+    "main.css": "/radency-test-task-second-react/static/css/main.88a511ee.css",
+    "main.js": "/radency-test-task-second-react/static/js/main.ca2b2fa9.js",
     "index.html": "/radency-test-task-second-react/index.html",
-    "main.254fb850.css.map": "/radency-test-task-second-react/static/css/main.254fb850.css.map",
-    "main.35ea3593.js.map": "/radency-test-task-second-react/static/js/main.35ea3593.js.map"
+    "main.88a511ee.css.map": "/radency-test-task-second-react/static/css/main.88a511ee.css.map",
+    "main.ca2b2fa9.js.map": "/radency-test-task-second-react/static/js/main.ca2b2fa9.js.map"
   },
   "entrypoints": [
-    "static/css/main.254fb850.css",
-    "static/js/main.35ea3593.js"
+    "static/css/main.88a511ee.css",
+    "static/js/main.ca2b2fa9.js"
   ]
 }
