@@ -96,7 +96,7 @@ export const changeNoteContentThunk = createAsyncThunk(
     const elChange = document.getElementById(id);
     elChange.insertAdjacentHTML(
       "afterend",
-      `<button type="button" class="btn-primary" id="btnSubmitChange">Submit</button>`
+      `<button type="button" class="btn-primary complete-change" id="btnSubmitChange">Confirm</button>`
     );
     elChange.setAttribute("contentEditable", "true");
     elChange.focus({ preventScroll: true });

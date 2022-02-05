@@ -25,6 +25,10 @@ button:hover
   background-color: inherit;
   border-radius: inherit;
 }
+.complete-change{
+  margin-top: 5px;
+  border-radius: 16px;
+}
 
 table{
   table-layout: fixed;
